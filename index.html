@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoCode.AI — AI-Powered Code Planning for VS Code</title>
+    <meta name="description"
+        content="AutoCode.AI is a powerful VS Code extension that generates precise implementation plans for your coding tasks and executes them file-by-file using AI. Download now for free.">
+    <meta name="keywords" content="VS Code extension, AI coding, code planner, autocode, AI developer tools, Gemini AI">
+    <meta name="author" content="Anup Thakur">
+    <meta property="og:title" content="AutoCode.AI — AI-Powered Code Planning for VS Code">
+    <meta property="og:description"
+        content="Generate precise implementation plans and execute them file-by-file with AI. Free VS Code extension.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-grid"></div>
+    <div class="bg-glow bg-glow-1"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    <div class="bg-glow bg-glow-3"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+                        <rect width="28" height="28" rx="7" fill="url(#logo-gradient)" />
+                        <path d="M8 14L12 10L16 14L12 18Z" fill="white" opacity="0.9" />
+                        <path d="M12 10L20 10L16 14Z" fill="white" opacity="0.6" />
+                        <path d="M12 18L20 18L16 14Z" fill="white" opacity="0.4" />
+                        <defs>
+                            <linearGradient id="logo-gradient" x1="0" y1="0" x2="28" y2="28">
+                                <stop stop-color="#6366f1" />
+                                <stop offset="1" stop-color="#a855f7" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="logo-text">AutoCode<span class="logo-dot">.AI</span></span>
+            </a>
+            <div class="nav-links">
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#demo" class="nav-link">Demo</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#setup" class="nav-link">Setup</a>
+                <a href="#download" class="nav-link">Download</a>
+            </div>
+            <div class="nav-actions">
+                <a href="https://github.com/Anupthakurr" class="nav-link github-link" target="_blank" rel="noopener">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                </a>
+                <a href="#download" class="btn btn-nav">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                        <polyline points="7 10 12 15 17 10" />
+                        <line x1="12" y1="15" x2="12" y2="3" />
+                    </svg>
+                    Download Free
+                </a>
+            </div>
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge animate-fade-up">
+                    <span class="badge-dot"></span>
+                    <span>v1.2.0 — Now with Enhanced Plan Execution</span>
+                </div>
+                <h1 class="hero-title animate-fade-up delay-1">
+                    Code Smarter with
+                    <span class="gradient-text">AI-Powered</span>
+                    Planning
+                </h1>
+                <p class="hero-subtitle animate-fade-up delay-2">
+                    AutoCode.AI generates precise implementation plans for your coding tasks
+                    and executes them file-by-file directly in your VS Code workspace.
+                    Powered by Gemini AI.
+                </p>
+                <div class="hero-actions animate-fade-up delay-3">
+                    <a href="#download" class="btn btn-primary btn-lg">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                            <polyline points="7 10 12 15 17 10" />
+                            <line x1="12" y1="15" x2="12" y2="3" />
+                        </svg>
+                        Download Extension
+                    </a>
+                    <a href="https://marketplace.visualstudio.com/items?itemName=anupthakur.autocode-ai-anup"
+                        class="btn btn-secondary btn-lg" target="_blank" rel="noopener">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2">
+                            <polygon points="5 3 19 12 5 21 5 3" />
+                        </svg>
+                        VS Code Marketplace
+                    </a>
+                </div>
+                <div class="hero-stats animate-fade-up delay-4">
+                    <div class="stat">
+                        <span class="stat-number" data-target="9">0</span>
+                        <span class="stat-label">Installs</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <div class="stat-stars">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="#fbbf24">
+                                <polygon
+                                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                            </svg>
+                        </div>
+                        <span class="stat-label">5.0 Rating</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat">
+                        <span class="stat-number">Free</span>
+                        <span class="stat-label">Forever</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual animate-fade-up delay-2">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-glow"></div>
+                    <img src="hero.png" alt="AutoCode.AI Logo" class="hero-image" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By / Compatible With -->
+    <section class="compatibility">
+        <div class="container">
+            <p class="compat-label">Works seamlessly with</p>
+            <div class="compat-logos">
+                <div class="compat-item">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z" />
+                    </svg>
+                    <span>VS Code</span>
+                </div>
+                <div class="compat-item">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0L1.75 6v12L12 24l10.25-6V6L12 0zm3.5 16.5h-7v-1.25h7v1.25zm0-3.5h-7v-1.25h7V13zm0-3.5h-7V8.25h7V9.5z" />
+                    </svg>
+                    <span>Gemini AI</span>
+                </div>
+                <div class="compat-item">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M11.998 0C5.366 0 0 5.367 0 12a11.992 11.992 0 0 0 8.207 11.387c.6.111.82-.26.82-.577 0-.286-.011-1.04-.015-2.04-3.34.723-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .32.192.694.801.576A11.995 11.995 0 0 0 24 12c0-6.633-5.367-12-12.002-12z" />
+                    </svg>
+                    <span>GitHub</span>
+                </div>
+                <div class="compat-item">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M0 0h10.5v10.5H0zM13.5 0H24v10.5H13.5zM0 13.5h10.5V24H0zM13.5 13.5H24V24H13.5z" />
+                    </svg>
+                    <span>Windows</span>
+                </div>
+                <div class="compat-item">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701" />
+                    </svg>
+                    <span>macOS</span>
+                </div>
+                <div class="compat-item">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12.504 0c-.155 0-.311.015-.466.044C7.767.596 5.181 4.064 5.181 4.064S2.305 7.587 2.061 12.44c-.244 4.852 3.282 8.891 3.282 8.891.152.184 3.75 4.268 8.186 2.306 4.037-1.785 5.242-5.988 5.353-6.416.172-.656.21-1.393.042-2.099-.198-.825-.644-1.504-1.107-2.06-.608-.732-1.353-1.281-2.122-1.787-.935-.617-2.26-1.266-2.26-2.468 0-.993.67-1.578 1.297-2.123.691-.6 1.41-1.207 1.41-2.483C16.142 1.668 14.266 0 12.504 0z" />
+                    </svg>
+                    <span>Linux</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Features</span>
+                <h2 class="section-title">Everything you need to<br><span class="gradient-text">code faster</span></h2>
+                <p class="section-subtitle">AutoCode.AI combines the power of Gemini AI with VS Code's ecosystem to
+                    supercharge your development workflow.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card feature-card-lg" id="feature-planning">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                        </svg>
+                    </div>
+                    <h3>Smart Plan Generation</h3>
+                    <p>Describe your task in plain English. AutoCode.AI breaks it down into precise, actionable
+                        implementation steps with file-level detail.</p>
+                    <div class="feature-preview">
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span class="code-dot red"></span>
+                                <span class="code-dot yellow"></span>
+                                <span class="code-dot green"></span>
+                                <span class="code-title">Generated Plan</span>
+                            </div>
+                            <pre><code><span class="code-step">Step 1:</span> Create <span class="code-file">src/components/Header.tsx</span>
+<span class="code-comment">→ Responsive navigation with mobile menu</span>
+
+<span class="code-step">Step 2:</span> Update <span class="code-file">src/App.tsx</span>
+<span class="code-comment">→ Import and integrate Header component</span>
+
+<span class="code-step">Step 3:</span> Create <span class="code-file">src/styles/header.css</span>
+<span class="code-comment">→ Glassmorphism design with animations</span></code></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card" id="feature-approval">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                        </svg>
+                    </div>
+                    <h3>Approval Workflow</h3>
+                    <p>Review every plan before execution. You stay in control — nothing changes without your explicit
+                        approval.</p>
+                </div>
+
+                <div class="feature-card" id="feature-execution">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                    </div>
+                    <h3>Auto Execution</h3>
+                    <p>Once approved, AutoCode.AI automatically creates and modifies files in your workspace. Watch your
+                        code come to life.</p>
+                </div>
+
+                <div class="feature-card" id="feature-sidebar">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                            <line x1="9" y1="3" x2="9" y2="21" />
+                        </svg>
+                    </div>
+                    <h3>Sidebar UI</h3>
+                    <p>An intuitive sidebar interface built right into VS Code. Submit tasks, review plans, and track
+                        execution without leaving your editor.</p>
+                </div>
+
+                <div class="feature-card" id="feature-gemini">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <circle cx="12" cy="12" r="3" />
+                            <path
+                                d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
+                        </svg>
+                    </div>
+                    <h3>Powered by Gemini</h3>
+                    <p>Leverages Google's Gemini AI for intelligent, context-aware code generation. Bring your own API
+                        key — completely free.</p>
+                </div>
+
+                <div class="feature-card" id="feature-terminal">
+                    <div class="feature-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="1.5">
+                            <polyline points="4 17 10 11 4 5" />
+                            <line x1="12" y1="19" x2="20" y2="19" />
+                        </svg>
+                    </div>
+                    <h3>Terminal Commands</h3>
+                    <p>Automatically runs necessary terminal commands like npm install, project setup, and build steps
+                        as part of the plan execution.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo" id="demo">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">See It in Action</span>
+                <h2 class="section-title">Your AI coding assistant,<br><span class="gradient-text">inside VS Code</span>
+                </h2>
+                <p class="section-subtitle">Watch how AutoCode.AI transforms a simple description into a complete,
+                    working implementation.</p>
+            </div>
+            <div class="demo-showcase">
+                <div class="demo-image-wrapper">
+                    <div class="demo-browser-bar">
+                        <span class="code-dot red"></span>
+                        <span class="code-dot yellow"></span>
+                        <span class="code-dot green"></span>
+                        <span class="demo-browser-title">Visual Studio Code — AutoCode.AI</span>
+                    </div>
+                    <img src="screenshot.png" alt="AutoCode.AI in action inside VS Code" class="demo-image" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">How It Works</span>
+                <h2 class="section-title">Three simple steps to<br><span class="gradient-text">supercharge your
+                        workflow</span></h2>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card" id="step-1">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Describe Your Task</h3>
+                        <p>Open the AutoCode.AI sidebar and type what you want to build. Use natural language — no
+                            special syntax needed.</p>
+                    </div>
+                    <div class="step-example">
+                        <code>"Create a responsive dashboard with a sidebar navigation, dark mode toggle, and user profile section"</code>
+                    </div>
+                </div>
+                <div class="step-connector">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </div>
+                <div class="step-card" id="step-2">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Review the Plan</h3>
+                        <p>AutoCode.AI generates a detailed, step-by-step plan showing exactly what files will be
+                            created or modified. Review and approve when ready.</p>
+                    </div>
+                </div>
+                <div class="step-connector">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </div>
+                <div class="step-card" id="step-3">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Watch It Build</h3>
+                        <p>Hit approve and AutoCode.AI executes the plan — creating files, writing code, and running
+                            commands automatically in your workspace.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use / Setup Guide -->
+    <section class="setup-guide" id="setup">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Setup Guide</span>
+                <h2 class="section-title">How to <span class="gradient-text">get started</span></h2>
+                <p class="section-subtitle">Get up and running in under 2 minutes. Just install, add your API key, and
+                    start building.</p>
+            </div>
+            <div class="setup-steps">
+                <!-- Step 1: Install -->
+                <div class="setup-step" id="setup-step-1">
+                    <div class="setup-step-header">
+                        <div class="setup-step-number">1</div>
+                        <div class="setup-step-info">
+                            <h3>Install the Extension</h3>
+                            <p>Open VS Code, press <kbd>Ctrl+P</kbd> (or <kbd>Cmd+P</kbd> on Mac), and paste the install
+                                command:</p>
+                        </div>
+                    </div>
+                    <div class="setup-code-block">
+                        <div class="code-header">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                            <span class="code-title">VS Code — Quick Open (Ctrl+P)</span>
+                        </div>
+                        <div class="setup-code-content">
+                            <code>ext install anupthakur.autocode-ai-anup</code>
+                            <button class="copy-btn setup-copy-btn" data-copy="ext install anupthakur.autocode-ai-anup"
+                                aria-label="Copy command">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                                </svg>
+                                <span>Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                    <p class="setup-alt-text">Or install directly from the <a
+                            href="https://marketplace.visualstudio.com/items?itemName=anupthakur.autocode-ai-anup"
+                            target="_blank" rel="noopener">VS Code Marketplace</a></p>
+                </div>
+
+                <div class="setup-step-arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </div>
+
+                <!-- Step 2: Get API Key -->
+                <div class="setup-step" id="setup-step-2">
+                    <div class="setup-step-header">
+                        <div class="setup-step-number">2</div>
+                        <div class="setup-step-info">
+                            <h3>Get Your Gemini API Key</h3>
+                            <p>Visit Google AI Studio to generate a free Gemini API key. It only takes a few seconds.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener"
+                        class="setup-link-card">
+                        <div class="setup-link-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                                <polyline points="10 17 15 12 10 7" />
+                                <line x1="15" y1="12" x2="3" y2="12" />
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>Google AI Studio</strong>
+                            <span>aistudio.google.com/app/apikey</span>
+                        </div>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" class="setup-link-arrow">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </a>
+                </div>
+
+                <div class="setup-step-arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </div>
+
+                <!-- Step 3: Configure Settings -->
+                <div class="setup-step" id="setup-step-3">
+                    <div class="setup-step-header">
+                        <div class="setup-step-number">3</div>
+                        <div class="setup-step-info">
+                            <h3>Add API Key to VS Code Settings</h3>
+                            <p>Open VS Code Settings (<kbd>Ctrl+,</kbd>), search for <strong>"AutoCodeAI"</strong>, and
+                                paste your Gemini API key.</p>
+                        </div>
+                    </div>
+                    <div class="setup-code-block">
+                        <div class="code-header">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                            <span class="code-title">settings.json</span>
+                        </div>
+                        <pre class="setup-json-block"><code>{
+  <span class="json-key">"AutoCodeAI.apiKey"</span>: <span class="json-value">"your-gemini-api-key-here"</span>
+}</code></pre>
+                    </div>
+                    <div class="setup-settings-visual">
+                        <div class="settings-search-bar">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                            <span>AutoCodeAI</span>
+                        </div>
+                        <div class="settings-item">
+                            <div class="settings-item-label">AutoCode AI: <strong>Api Key</strong></div>
+                            <div class="settings-item-desc">Enter your Gemini API key for AI-powered code generation
+                            </div>
+                            <div class="settings-item-input">
+                                <span>AIzaSy...your_key_here</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setup-step-arrow">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                </div>
+
+                <!-- Step 4: Start Using -->
+                <div class="setup-step" id="setup-step-4">
+                    <div class="setup-step-header">
+                        <div class="setup-step-number">4</div>
+                        <div class="setup-step-info">
+                            <h3>Start Building with AI</h3>
+                            <p>Click the AutoCode.AI icon in the sidebar, type your task, and let AI generate and
+                                execute your plan!</p>
+                        </div>
+                    </div>
+                    <div class="setup-ready-card">
+                        <div class="setup-ready-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="1.5">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                                <polyline points="22 4 12 14.01 9 11.01" />
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>You're all set!</strong>
+                            <p>Open the sidebar and describe what you want to build. AutoCode.AI will handle the rest.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section class="download" id="download">
+        <div class="container">
+            <div class="download-card">
+                <div class="download-glow"></div>
+                <div class="download-content">
+                    <span class="section-tag">Get Started</span>
+                    <h2 class="section-title">Download <span class="gradient-text">AutoCode.AI</span></h2>
+                    <p class="section-subtitle">Free and open source. Choose your preferred installation method.</p>
+
+                    <div class="download-options">
+                        <div class="download-option" id="download-marketplace">
+                            <div class="download-option-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                                    <path
+                                        d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352z" />
+                                </svg>
+                            </div>
+                            <h3>VS Code Marketplace</h3>
+                            <p>Install directly from the VS Code Marketplace with one click.</p>
+                            <a href="https://marketplace.visualstudio.com/items?itemName=anupthakur.autocode-ai-anup"
+                                class="btn btn-primary" target="_blank" rel="noopener">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                    <polyline points="15 3 21 3 21 9" />
+                                    <line x1="10" y1="14" x2="21" y2="3" />
+                                </svg>
+                                Open in Marketplace
+                            </a>
+                        </div>
+
+                        <div class="download-option" id="download-quick-install">
+                            <div class="download-option-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <polyline points="4 17 10 11 4 5" />
+                                    <line x1="12" y1="19" x2="20" y2="19" />
+                                </svg>
+                            </div>
+                            <h3>Quick Install</h3>
+                            <p>Run this command in VS Code's Quick Open panel (<kbd>Ctrl+P</kbd>).</p>
+                            <div class="install-command" id="install-command">
+                                <code>ext install anupthakur.autocode-ai-anup</code>
+                                <button class="copy-btn" id="copy-btn" aria-label="Copy command">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+                                        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+                                    </svg>
+                                    <span>Copy</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="download-option" id="download-vsix">
+                            <div class="download-option-icon">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="1.5">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                            </div>
+                            <h3>Download .vsix</h3>
+                            <p>Download the extension package and install it manually in VS Code.</p>
+                            <a href="#" class="btn btn-outline" id="vsix-download-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                                Download v1.2.0
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+                                <rect width="28" height="28" rx="7" fill="url(#logo-gradient-footer)" />
+                                <path d="M8 14L12 10L16 14L12 18Z" fill="white" opacity="0.9" />
+                                <path d="M12 10L20 10L16 14Z" fill="white" opacity="0.6" />
+                                <path d="M12 18L20 18L16 14Z" fill="white" opacity="0.4" />
+                                <defs>
+                                    <linearGradient id="logo-gradient-footer" x1="0" y1="0" x2="28" y2="28">
+                                        <stop stop-color="#6366f1" />
+                                        <stop offset="1" stop-color="#a855f7" />
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <span class="logo-text">AutoCode<span class="logo-dot">.AI</span></span>
+                    </a>
+                    <p class="footer-tagline">AI-powered code planning for VS Code. Built by Anup Thakur.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Product</h4>
+                        <a href="#features">Features</a>
+                        <a href="#demo">Demo</a>
+                        <a href="#download">Download</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Resources</h4>
+                        <a href="https://marketplace.visualstudio.com/items?itemName=anupthakur.autocode-ai-anup"
+                            target="_blank" rel="noopener">VS Code Marketplace</a>
+                        <a href="https://github.com/Anupthakurr" target="_blank" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 AutoCode.AI by Anup Thakur. All rights reserved.</p>
+                <p class="footer-note">Made with ❤️ for developers</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
