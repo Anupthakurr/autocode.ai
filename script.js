@@ -171,6 +171,48 @@ document.addEventListener('DOMContentLoaded', () => {
 
     statNumbers.forEach(el => statObserver.observe(el));
 
+    // ===== Fetch Live Install Count from VS Code Marketplace =====
+    const fetchInstallCount = async () => {
+        try {
+            const response = await fetch('https://marketplace.visualstudio.com/_apis/public/gallery/extensionquery', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json;api-version=3.0-preview.1'
+                },
+                body: JSON.stringify({
+                    filters: [{
+                        criteria: [{ filterType: 7, value: 'anupthakur.autocode-ai-anup' }]
+                    }],
+                    flags: 914
+                })
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                const extension = data?.results?.[0]?.extensions?.[0];
+                if (extension && extension.statistics) {
+                    const installStat = extension.statistics.find(stat => stat.statisticName === 'install');
+                    if (installStat && installStat.value) {
+                        const installElements = document.querySelectorAll('.stat-number');
+                        installElements.forEach(el => {
+                            if (el.nextElementSibling && el.nextElementSibling.textContent.includes('Installs')) {
+                                el.dataset.target = installStat.value;
+                                // Automatically trigger animation to new value
+                                animateCounter(el, installStat.value);
+                            }
+                        });
+                    }
+                }
+            }
+        } catch (e) {
+            console.error('Error fetching install count:', e);
+        }
+    };
+
+    // Fetch immediately
+    fetchInstallCount();
+
     // ===== Tilt Effect on Feature Cards =====
     document.querySelectorAll('.feature-card').forEach(card => {
         card.addEventListener('mousemove', (e) => {
