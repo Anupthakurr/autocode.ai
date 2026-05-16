@@ -304,4 +304,32 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileToggle?.classList.remove('active');
         }
     });
+
+    // ===== Hero Video Mute Toggle =====
+    const heroVideo = document.getElementById('hero-video');
+    const muteBtn = document.getElementById('mute-btn');
+
+    if (heroVideo && muteBtn) {
+        const iconMuted = muteBtn.querySelector('.icon-muted');
+        const iconUnmuted = muteBtn.querySelector('.icon-unmuted');
+
+        // Try to play unmuted; if browser blocks it, fall back to muted
+        heroVideo.play().catch(() => {
+            heroVideo.muted = true;
+            heroVideo.play();
+            iconMuted.style.display = 'block';
+            iconUnmuted.style.display = 'none';
+        });
+
+        muteBtn.addEventListener('click', () => {
+            heroVideo.muted = !heroVideo.muted;
+            if (heroVideo.muted) {
+                iconMuted.style.display = 'block';
+                iconUnmuted.style.display = 'none';
+            } else {
+                iconMuted.style.display = 'none';
+                iconUnmuted.style.display = 'block';
+            }
+        });
+    }
 });
